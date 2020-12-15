@@ -3,11 +3,11 @@ require 'rest-client'
 class WikisController < ApplicationController
 
     def wikiarticles
-        url = "https://en.wikipedia.org/w/api.php?action=query&list=search&srlimit=50&srsearch=#{params[:search]}&utf8=&srqiprofile=popular_inclinks_pv&format=json"
+        url = "https://en.wikipedia.org/w/api.php?action=query&list=search&srlimit=50&srsearch=#{params[:search]}&utf8=&format=json"
         response = RestClient.get(url)
         data = JSON.parse(response.body)
         render json: data
-        byebug
+        # byebugc
     end
 
     # private
